@@ -1,0 +1,16 @@
+.shop-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+.shop-title {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 2rem;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.shop-placeholder {
+  color: var(--text-secondary);
+}
