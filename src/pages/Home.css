@@ -13,6 +13,7 @@
   align-items: flex-start;
   gap: 1rem;
   padding: 3rem 0;
+  animation: fade-in-up 0.5s ease both;
 }
 
 .hero-eyebrow {
@@ -69,4 +70,16 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 1.25rem;
+  animation: fade-in-up 0.5s ease 0.1s both;
+}
+
+@media (max-width: 480px) {
+  .home-page {
+    gap: 2.5rem;
+    padding: 2rem 1.25rem;
+  }
+
+  .hero {
+    padding: 1.5rem 0;
+  }
 }

@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { getProductById } from "../api/products.js";
+import { useCart } from "../context/CartContext.jsx";
 import "./ProductView.css";
 
 function ProductView() {
   const { id } = useParams();
+  const { addToCart } = useCart();
   const [product, setProduct] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [loadError, setLoadError] = useState(null);
+  const [justAdded, setJustAdded] = useState(false);
 
   useEffect(() => {
     let isMounted = true;
@@ -74,8 +77,16 @@ function ProductView() {
             </span>
           </div>
 
-          <button className="add-to-cart-btn" type="button">
-            Add to cart
+          <button
+            className="add-to-cart-btn"
+            type="button"
+            onClick={() => {
+              addToCart(product);
+              setJustAdded(true);
+              setTimeout(() => setJustAdded(false), 1500);
+            }}
+          >
+            {justAdded ? "Added ✓" : "Add to cart"}
           </button>
         </div>
       </div>

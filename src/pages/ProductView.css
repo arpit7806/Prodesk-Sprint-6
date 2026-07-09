@@ -28,6 +28,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
+  animation: fade-in-up 0.5s ease both;
 }
 
 .product-detail-image {
