@@ -1,7 +1,7 @@
 .navbar {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
   padding: 1rem 1.5rem;
   position: sticky;
   top: 0;
@@ -9,6 +9,32 @@
   background: rgba(10, 12, 18, 0.65);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  perspective: 800px;
+}
+
+.navbar-side {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.navbar-left {
+  justify-content: flex-start;
+}
+
+.navbar-right {
+  justify-content: flex-end;
+}
+
+.navbar-side a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.navbar-side a:hover {
+  color: var(--text-primary);
 }
 
 .navbar-logo {
@@ -18,42 +44,31 @@
   color: var(--text-primary);
   text-decoration: none;
   font-size: 1.1rem;
+  justify-self: center;
+  animation: logo-arrive 1s cubic-bezier(0.2, 0.9, 0.3, 1) both;
 }
 
-.navbar-links {
-  display: flex;
-  gap: 1.5rem;
-}
-
-.navbar-links a {
-  color: var(--text-secondary);
-  text-decoration: none;
-  font-size: 0.95rem;
-  transition: color 0.2s ease;
-}
-
-.navbar-links a:hover {
-  color: var(--text-primary);
+@keyframes logo-arrive {
+  0% {
+    opacity: 0;
+    transform: translateZ(-600px) translateY(40px) scale(0.2);
+    filter: blur(6px);
+  }
+  70% {
+    opacity: 1;
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateZ(0) translateY(0) scale(1);
+    filter: blur(0);
+  }
 }
 
 .navbar-cart {
   position: relative;
   font-size: 1.2rem;
   cursor: pointer;
-}
-
-@media (max-width: 480px) {
-  .navbar {
-    padding: 0.85rem 1.1rem;
-  }
-
-  .navbar-links {
-    gap: 0.9rem;
-  }
-
-  .navbar-links a {
-    font-size: 0.85rem;
-  }
 }
 
 .cart-badge {
@@ -85,5 +100,23 @@
   }
   100% {
     transform: scale(1);
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0.85rem 1.1rem;
+  }
+
+  .navbar-side {
+    gap: 0.9rem;
+  }
+
+  .navbar-side a {
+    font-size: 0.85rem;
+  }
+
+  .navbar-logo {
+    font-size: 0.95rem;
   }
 }

@@ -8,12 +8,77 @@
 }
 
 .hero {
+  position: relative;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  text-align: center;
   gap: 1rem;
-  padding: 3rem 0;
+  padding: 5rem 1rem;
   animation: fade-in-up 0.5s ease both;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-decor {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.decor-item {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  filter: blur(3px);
+  opacity: 0.18;
+  animation: decor-float 7s ease-in-out infinite;
+}
+
+.decor-1 {
+  top: 8%;
+  left: 8%;
+  animation-delay: 0s;
+}
+
+.decor-2 {
+  top: 15%;
+  right: 10%;
+  width: 70px;
+  height: 70px;
+  animation-delay: 1.5s;
+}
+
+.decor-3 {
+  bottom: 10%;
+  left: 14%;
+  width: 80px;
+  height: 80px;
+  animation-delay: 3s;
+}
+
+.decor-4 {
+  bottom: 12%;
+  right: 8%;
+  animation-delay: 4.5s;
+}
+
+@keyframes decor-float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-18px) rotate(6deg);
+  }
 }
 
 .hero-eyebrow {

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ProductCard from "../components/ProductCard.jsx";
+import HeroDecor from "../components/HeroDecor.jsx";
 import { getAllProducts } from "../api/products.js";
 import "./Home.css";
 
@@ -31,15 +32,19 @@ function Home() {
   return (
     <div className="home-page">
       <section className="hero">
-        <span className="hero-eyebrow">New Drop</span>
-        <h1 className="hero-title">Gear up. Check out. Move on.</h1>
-        <p className="hero-subtitle">
-          Browse the full catalog and add what you need to your cart —
-          no reloads, no waiting around.
-        </p>
-        <Link to="/shop" className="hero-cta">
-          Browse the shop
-        </Link>
+        <HeroDecor />
+
+        <div className="hero-content">
+          <span className="hero-eyebrow">New Drop</span>
+          <h1 className="hero-title">Gear up. Check out. Move on.</h1>
+          <p className="hero-subtitle">
+            Browse the full catalog and add what you need to your cart —
+            no reloads, no waiting around.
+          </p>
+          <Link to="/shop" className="hero-cta">
+            Browse the shop
+          </Link>
+        </div>
       </section>
 
       <section className="featured-section">
